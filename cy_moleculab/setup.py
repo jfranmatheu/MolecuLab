@@ -1,5 +1,6 @@
 import sys
 import platform
+import numpy
 
 bit_depth = platform.architecture()[0]
 os_name = platform.architecture()[1]
@@ -30,7 +31,8 @@ else:
 
 
 setup(
-    name='Molecular script',
+    name='Moleculab script',
     cmdclass={'build_ext': build_ext},
-    ext_modules=ext_modules
+    ext_modules=ext_modules,
+    include_dirs=[numpy.get_include()]
 )
